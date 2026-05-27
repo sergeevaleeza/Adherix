@@ -9,7 +9,9 @@
       "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix\\\\app\\\\reports\")",
       "PowerShell($env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npm run build 2>&1)",
       "PowerShell($env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npx prisma generate 2>&1)",
-      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep -Seconds 2; $env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npx prisma generate 2>&1)"
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep -Seconds 2; $env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npx prisma generate 2>&1)",
+      "Bash(ls \"c:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\\" 2>/dev/null)",
+      "Read(//c/Users/Leeza/Documents/GitHub\" 2>/dev/**)"
     ]
   }
 }
