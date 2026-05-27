@@ -6,12 +6,28 @@ interface Props {
 
 export default function PageHeader({ title, subtitle, action }: Props) {
   return (
-    <div className="flex items-start justify-between mb-6">
-      <div>
-        <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
-        {subtitle && <p className="text-sm text-gray-500 mt-0.5">{subtitle}</p>}
+    <div style={{ marginBottom: 24 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <h1
+            style={{
+              fontSize: 22,
+              fontWeight: 700,
+              color: "var(--navy)",
+              fontFamily: "var(--font-sora)",
+              margin: 0,
+            }}
+          >
+            {title}
+          </h1>
+          {subtitle && (
+            <p style={{ fontSize: 13, color: "var(--text-muted)", margin: "4px 0 0" }}>
+              {subtitle}
+            </p>
+          )}
+        </div>
+        {action && <div>{action}</div>}
       </div>
-      {action && <div>{action}</div>}
     </div>
   );
 }

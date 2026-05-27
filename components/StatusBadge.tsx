@@ -6,20 +6,40 @@ interface Props {
 }
 
 export default function StatusBadge({ status, size = "md" }: Props) {
-  const cfg = STATUS_CONFIG[status as TreatmentStatus] ?? {
+  const s = STATUS_CONFIG[status as TreatmentStatus] ?? {
     label: status,
-    bgColor: "bg-gray-100",
-    textColor: "text-gray-700",
-    borderColor: "border-gray-300",
+    bgColor: "#F9FAFB",
+    textColor: "#6B7280",
+    borderColor: "#E5E7EB",
   };
-
-  const sizeClass = size === "sm" ? "text-xs px-1.5 py-0.5" : "text-xs px-2 py-1";
 
   return (
     <span
-      className={`inline-flex items-center font-medium rounded-full border ${cfg.bgColor} ${cfg.textColor} ${cfg.borderColor} ${sizeClass}`}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 5,
+        background: s.bgColor,
+        color: s.textColor,
+        border: `1px solid ${s.borderColor}`,
+        borderRadius: 20,
+        padding: size === "sm" ? "2px 8px" : "4px 10px",
+        fontSize: size === "sm" ? 11 : 12,
+        fontWeight: 600,
+        fontFamily: "var(--font-inter)",
+        whiteSpace: "nowrap",
+      }}
     >
-      {cfg.label}
+      <span
+        style={{
+          width: 5,
+          height: 5,
+          borderRadius: "50%",
+          background: s.textColor,
+          flexShrink: 0,
+        }}
+      />
+      {s.label}
     </span>
   );
 }

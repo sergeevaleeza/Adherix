@@ -3,36 +3,146 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  /* === BRAND COLORS === */
+  --navy:     #0B1D3A;
+  --blue:     #2563EB;
+  --teal:     #10B5A6;
+  --green:    #10B981;
+  --gold:     #D4A373;
+  --offwhite: #F8F5F0;
+  --midnight: #112A4F;
+  --plum:     #7C3AED;
+
+  /* === SEMANTIC === */
+  --page-bg:     var(--offwhite);
+  --card-bg:     #ffffff;
+  --card-border: #EBE8E3;
+  --card-shadow: 0 1px 4px rgba(11,29,58,0.08), 0 4px 12px rgba(11,29,58,0.04);
+
+  --text-primary:   var(--navy);
+  --text-secondary: #3D4F6B;
+  --text-muted:     #7A8BA0;
+  --text-dim:       #B0BEC5;
+
+  /* === SIDEBAR === */
+  --sidebar-bg:            var(--navy);
+  --sidebar-text:          #ffffff;
+  --sidebar-muted:         rgba(255,255,255,0.55);
+  --sidebar-active:        rgba(37,99,235,0.18);
+  --sidebar-border:        rgba(255,255,255,0.07);
+  --sidebar-active-border: var(--blue);
+
+  /* === STATUS === */
+  --status-overdue-text:   #DC2626;
+  --status-overdue-bg:     #FEE2E2;
+  --status-overdue-border: #FECACA;
+
+  --status-due-soon-text:   #B45309;
+  --status-due-soon-bg:     #FFF4DE;
+  --status-due-soon-border: #F5D9A0;
+
+  --status-upcoming-text:   #0E9F93;
+  --status-upcoming-bg:     #DDF7F4;
+  --status-upcoming-border: #A7EDE8;
+
+  --status-completed-text:   #059669;
+  --status-completed-bg:     #DCFCE7;
+  --status-completed-border: #A7F3D0;
+
+  --status-review-text:   #6D28D9;
+  --status-review-bg:     #EDE9FE;
+  --status-review-border: #DDD6FE;
+
+  --status-paused-text:   #6B7280;
+  --status-paused-bg:     #F3F4F6;
+  --status-paused-border: #E5E7EB;
 }
 
+/* === TYPOGRAPHY === */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3 {
+  font-family: var(--font-sora), system-ui, sans-serif;
+}
+
+/* === COMPONENT UTILITIES === */
 @layer components {
+
+  /* --- Buttons --- */
   .btn {
-    @apply inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1;
+    @apply inline-flex items-center gap-2 font-semibold
+           transition-all duration-150 cursor-pointer
+           select-none whitespace-nowrap;
+    font-family: var(--font-inter);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
   }
+
+  /* Primary — Compassionate Teal */
   .btn-primary {
-    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+    @apply btn text-white shadow-sm;
+    background-color: var(--teal);
   }
+  .btn-primary:hover { background-color: #0E9F93; }
+
+  /* Secondary — Pale blue */
   .btn-secondary {
-    @apply btn bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-gray-400;
+    @apply btn;
+    background-color: #EEF4FF;
+    color: var(--blue);
+    border: 1px solid #D8E5FF;
   }
+  .btn-secondary:hover { background-color: #E0ECFF; }
+
+  /* Tertiary — text only */
+  .btn-tertiary {
+    @apply btn;
+    background: transparent;
+    color: var(--blue);
+    padding: 6px 10px;
+  }
+  .btn-tertiary:hover { background-color: #EEF4FF; }
+
+  /* Danger */
   .btn-danger {
-    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+    @apply btn;
+    background-color: #FFF1F1;
+    color: #B91C1C;
+    border: 1px solid #FECACA;
   }
+  .btn-danger:hover { background-color: #FFE4E4; }
+
   .btn-sm {
-    @apply text-xs px-2.5 py-1;
+    padding: 6px 12px;
+    font-size: 12px;
   }
+
+  /* --- Cards --- */
   .card {
-    @apply bg-white rounded-lg border border-gray-200 shadow-sm;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    padding: 20px;
   }
+
+  /* --- Table --- */
   .table-row-hover {
-    @apply hover:bg-gray-50 transition-colors;
+    @apply cursor-pointer transition-colors duration-100;
+  }
+  .table-row-hover:hover {
+    background-color: #F0F7FF;
+  }
+
+  /* --- Status Pills --- */
+  .status-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1
+           text-xs font-semibold rounded-full;
   }
 }

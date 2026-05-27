@@ -4,6 +4,86 @@ All notable changes to Clinivore are documented here.
 
 ---
 
+## [0.3.0] — 2026-05-26
+
+### Brand Implementation — Clinivore V3 Official
+
+---
+
+### Design System
+
+- Replaced generic Tailwind config with official Clinivore brand palette: Navy `#0B1D3A`, Teal `#10B5A6`, Blue `#2563EB`, Green `#10B981`, Gold `#D4A373`, Off-white `#F8F5F0`, Midnight `#112A4F`, Plum `#7C3AED`
+- Added `Sora` (headings) and `Inter` (body/UI) via `next/font/google` with CSS variable registration
+- Replaced `globals.css` with full brand CSS variable set: semantic tokens for page bg, cards, text hierarchy, sidebar, and all 6 status states
+- Updated component utilities: `.btn-primary` → Compassionate Teal, `.btn-secondary` → pale blue, `.card` → white with warm border + brand shadow, `.btn-danger` → light red
+
+---
+
+### Sidebar (`components/Sidebar.tsx`)
+
+- Full redesign — Deep Navy background, all inline CSS styles using brand variables
+- New SVG icon mark: C arc (teal highlight) + orbit dots (blue/green) + heart (teal fill)
+- Wordmark split: **Clini** in white + **vore** in teal `#10B5A6`, Sora 700 18px
+- Active nav items: blue `#2563EB` left border + translucent blue background
+- Inactive items: muted white with hover brightening
+- HIPAA-Aware badge above user footer (teal-tinted, bordered)
+- User footer: teal initials avatar circle, name in white, role in muted white, sign-out arrow
+
+---
+
+### Status Badges (`components/StatusBadge.tsx`, `lib/status.ts`)
+
+- Replaced Tailwind class strings with hex color values throughout `STATUS_CONFIG`
+- `StatusBadge` now renders via inline styles — dot indicator + label, brand-spec colors per status
+- Overdue/High Priority: red palette; Due Soon/Today: gold palette; Needs Outreach: teal; On Track/Completed: green; Paused/Discontinued: gray
+
+---
+
+### Dashboard (`app/page.tsx`)
+
+- Replaced static header with time-based personalized greeting ("Good morning/afternoon/evening 👋/☀️/🌙")
+- Stat cards redesigned: Sora bold 36px number, uppercase label, sub-label, color-coded icon box, "View all →" link row at card bottom
+- Chart colors updated to match brand status palette
+
+---
+
+### Page Header (`components/PageHeader.tsx`)
+
+- Switched from Tailwind classes to CSS variable styles
+- Title uses Sora 700 22px in `--navy`; subtitle in `--text-muted`
+
+---
+
+### Outreach Queue (`app/outreach/page.tsx`)
+
+- AI draft output block restyled with plum `#EDE9FE` background, `#DDD6FE` border, `#6D28D9` header text, and `✦ AI Draft` label
+
+---
+
+### App Layout (`app/layout.tsx`)
+
+- Added Sora + Inter font imports with CSS variable registration
+- Applied `--font-sora` and `--font-inter` variables to `<html>` element
+- Updated metadata: new title template (`%s | Clinivore`), HIPAA-aware description, SVG favicon + OG tags
+
+---
+
+### Favicon (`public/icon.svg`)
+
+- Created SVG favicon: navy rounded square, C arc with teal highlight, orbit dots (blue/green), teal heart center — matches sidebar icon mark
+
+---
+
+### Build Results
+
+```
+✓ Compiled successfully (Next.js 15.5.18)
+✓ 0 TypeScript errors
+✓ 23 routes built
+```
+
+---
+
 ## [0.2.1] — 2026-05-26
 
 ### Rebrand — Adherix → Clinivore

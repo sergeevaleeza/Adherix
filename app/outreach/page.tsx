@@ -248,9 +248,42 @@ export default function OutreachQueuePage() {
             {draftLoading ? (
               <LoadingSpinner label="Generating..." />
             ) : (
-              <pre className="text-xs text-gray-700 whitespace-pre-wrap bg-gray-50 rounded-md p-4 font-mono leading-relaxed overflow-auto max-h-96">
-                {draftContent}
-              </pre>
+              <div
+                style={{
+                  background: "#EDE9FE",
+                  border: "1px solid #DDD6FE",
+                  borderRadius: 8,
+                  padding: "10px 14px",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "#6D28D9",
+                    fontWeight: 600,
+                    marginBottom: 8,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 5,
+                  }}
+                >
+                  ✦ AI Draft — review before pasting into EHR
+                </div>
+                <pre
+                  style={{
+                    fontSize: 13,
+                    color: "var(--text-primary)",
+                    lineHeight: 1.6,
+                    whiteSpace: "pre-wrap",
+                    fontFamily: "monospace",
+                    margin: 0,
+                    maxHeight: 384,
+                    overflowY: "auto",
+                  }}
+                >
+                  {draftContent}
+                </pre>
+              </div>
             )}
             <div className="mt-4 flex gap-2">
               <button onClick={() => handleGenerateDraft(draftTask, "CALL_SCRIPT")} className="btn btn-secondary btn-sm">📞 Call Script</button>
