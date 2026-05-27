@@ -4,6 +4,17 @@ All notable changes to Clinivore are documented here.
 
 ---
 
+## [0.3.1] — 2026-05-26
+
+### Dark / Light Theme Toggle
+
+- **`app/globals.css`**: Added `[data-theme="dark"]` CSS override block — dark page bg (`#08152E`), dark card bg (`#112A4F`), adjusted text hierarchy, brightened brand accent tokens (teal `#14C9B8`, blue `#4B8EF5`, plum `#9F67F5`). Added `--input-bg`, `--input-border`, `--input-text`, `--table-hover` CSS variables to `:root` (with dark overrides). Added `transition: background-color 0.2s ease, color 0.2s ease` to `body` for smooth theme switching. Updated `.table-row-hover:hover` to use `var(--table-hover)`.
+- **`lib/theme.tsx`**: New `ThemeProvider` (React Context) with `useTheme` hook. Reads saved preference from `localStorage` on mount, applies `data-theme` attribute to `<html>`. `toggleTheme` persists to `localStorage`.
+- **`app/layout.tsx`**: Imported `ThemeProvider`. Added anti-flash inline `<script>` in `<head>` that reads `clinivore-theme` from `localStorage` and sets `data-theme` before first paint. Wrapped layout body in `<ThemeProvider>`.
+- **`components/Sidebar.tsx`**: Imported `useTheme`. Added theme toggle button between nav and HIPAA badge — shows 🌙 "Dark mode" in light theme, ☀️ "Light mode" in dark theme. Sidebar stays deep navy in both modes.
+
+---
+
 ## [0.3.0] — 2026-05-26
 
 ### Brand Implementation — Clinivore V3 Official

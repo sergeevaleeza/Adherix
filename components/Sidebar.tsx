@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import type { Session } from "next-auth";
+import { useTheme } from "@/lib/theme";
 
 const navItems = [
   { href: "/",          label: "Dashboard",      icon: "⬛" },
@@ -29,6 +30,7 @@ export default function Sidebar({ session }: { session: Session | null }) {
       .catch(() => {});
   }, []);
 
+  const { theme, toggleTheme } = useTheme();
   const userName = session?.user?.name ?? "Practice Staff";
   const userRole = (session?.user as { role?: string } | undefined)?.role ?? "STAFF";
   const initials = userName
@@ -164,6 +166,40 @@ export default function Sidebar({ session }: { session: Session | null }) {
           );
         })}
       </nav>
+
+      {/* Theme toggle */}
+      <div style={{ padding: "0 12px 12px" }}>
+        <button
+          onClick={toggleTheme}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            width: "100%",
+            padding: "9px 12px",
+            background: "rgba(255,255,255,0.05)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: 8,
+            cursor: "pointer",
+            color: "rgba(255,255,255,0.55)",
+            fontSize: 12,
+            fontFamily: "var(--font-inter)",
+            fontWeight: 500,
+            transition: "background 0.15s, color 0.15s",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+            e.currentTarget.style.color = "rgba(255,255,255,0.85)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+            e.currentTarget.style.color = "rgba(255,255,255,0.55)";
+          }}
+        >
+          <span style={{ fontSize: 14 }}>{theme === "dark" ? "☀️" : "🌙"}</span>
+          <span>{theme === "dark" ? "Light mode" : "Dark mode"}</span>
+        </button>
+      </div>
 
       {/* HIPAA badge */}
       <div

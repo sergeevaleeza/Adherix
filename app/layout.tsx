@@ -3,6 +3,7 @@ import { Sora, Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import { auth } from "@/lib/auth";
+import { ThemeProvider } from "@/lib/theme";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -42,13 +43,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('clinivore-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();`,
+          }}
+        />
+      </head>
       <body style={{ backgroundColor: "var(--page-bg)" }} className="min-h-screen">
-        <div className="flex min-h-screen">
-          <Sidebar session={session} />
-          <main className="flex-1 ml-64 min-h-screen">
-            <div className="max-w-7xl mx-auto p-6">{children}</div>
-          </main>
-        </div>
+        <ThemeProvider>
+          <div className="flex min-h-screen">
+            <Sidebar session={session} />
+            <main className="flex-1 ml-64 min-h-screen">
+              <div className="max-w-7xl mx-auto p-6">{children}</div>
+            </main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

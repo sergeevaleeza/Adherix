@@ -32,6 +32,14 @@
   --sidebar-border:        rgba(255,255,255,0.07);
   --sidebar-active-border: var(--blue);
 
+  /* === INPUTS === */
+  --input-bg:     #ffffff;
+  --input-border: #D1D5DB;
+  --input-text:   var(--navy);
+
+  /* === TABLE === */
+  --table-hover: #F0F7FF;
+
   /* === STATUS === */
   --status-overdue-text:   #DC2626;
   --status-overdue-bg:     #FEE2E2;
@@ -58,12 +66,42 @@
   --status-paused-border: #E5E7EB;
 }
 
+/* === DARK THEME OVERRIDE === */
+[data-theme="dark"] {
+  --page-bg:     #08152E;
+  --card-bg:     #112A4F;
+  --card-border: #1E3A5F;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
+
+  --text-primary:   #F1ECE4;
+  --text-secondary: #A8B8CC;
+  --text-muted:     #6B7E94;
+  --text-dim:       #3D5270;
+
+  --teal:  #14C9B8;
+  --green: #34D399;
+  --gold:  #E8C98A;
+  --blue:  #4B8EF5;
+  --plum:  #9F67F5;
+
+  --sidebar-bg:            #0B1D3A;
+  --sidebar-active:        rgba(75,142,245,0.18);
+  --sidebar-active-border: #4B8EF5;
+
+  --input-bg:     #0D1F3C;
+  --input-border: #2A4A6B;
+  --input-text:   #F1ECE4;
+
+  --table-hover: rgba(75,142,245,0.08);
+}
+
 /* === TYPOGRAPHY === */
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
   background-color: var(--page-bg);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3 {
@@ -137,7 +175,7 @@ h1, h2, h3 {
     @apply cursor-pointer transition-colors duration-100;
   }
   .table-row-hover:hover {
-    background-color: #F0F7FF;
+    background-color: var(--table-hover);
   }
 
   /* --- Status Pills --- */
