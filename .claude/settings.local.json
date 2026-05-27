@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix\"; $env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; npx prisma db push 2>&1)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix\"; $env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; npm run prisma:seed 2>&1)",
+      "PowerShell($env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npm install next-auth@beta bcryptjs && npm install --save-dev @types/bcryptjs)",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix\\\\app\\\\login\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix\\\\app\\\\api\\\\reports\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix\\\\app\\\\reports\")",
+      "PowerShell($env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npm run build 2>&1)",
+      "PowerShell($env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npx prisma generate 2>&1)",
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep -Seconds 2; $env:NODE_TLS_REJECT_UNAUTHORIZED=\"0\"; Set-Location C:\\\\Users\\\\Leeza\\\\Documents\\\\GitHub\\\\Adherix; npx prisma generate 2>&1)"
+    ]
+  }
+}

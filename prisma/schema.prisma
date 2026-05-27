@@ -1,0 +1,132 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String?
+  role         String   @default("STAFF") // ADMIN | PROVIDER | STAFF
+  createdAt    DateTime @default(now())
+}
+
+model Patient {
+  id           String   @id @default(cuid())
+  displayName  String
+  internalId   String   @unique
+  phoneOptional String?
+  emailOptional String?
+  providerName String
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  enrollments   TreatmentEnrollment[]
+  treatmentEvents TreatmentEvent[]
+  outreachTasks OutreachTask[]
+  aiDrafts      AiDraft[]
+}
+
+model TreatmentProtocol {
+  id                 String   @id @default(cuid())
+  name               String   @unique
+  category           String
+  defaultIntervalDays Int
+  dueSoonDays        Int
+  overdueAfterDays   Int
+  escalationAfterDays Int
+  description        String?
+  isBuiltIn          Boolean  @default(true)
+  createdAt          DateTime @default(now())
+
+  enrollments TreatmentEnrollment[]
+}
+
+model TreatmentEnrollment {
+  id                String   @id @default(cuid())
+  patientId         String
+  protocolId        String
+  status            String   @default("ACTIVE") // ACTIVE | PAUSED | DISCONTINUED
+  startDate         DateTime
+  lastTreatmentDate DateTime?
+  nextDueDate       DateTime?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  patient        Patient           @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  protocol       TreatmentProtocol @relation(fields: [protocolId], references: [id])
+  treatmentEvents TreatmentEvent[]
+  outreachTasks   OutreachTask[]
+  aiDrafts        AiDraft[]
+}
+
+model TreatmentEvent {
+  id           String   @id @default(cuid())
+  patientId    String
+  enrollmentId String
+  eventType    String   // SCHEDULED | COMPLETED | MISSED | RESCHEDULED | CANCELLED
+  eventDate    DateTime
+  status       String?
+  note         String?
+  createdAt    DateTime @default(now())
+
+  patient    Patient             @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  enrollment TreatmentEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+}
+
+model OutreachTask {
+  id            String    @id @default(cuid())
+  patientId     String
+  enrollmentId  String
+  reason        String
+  status        String    @default("OPEN") // OPEN | CONTACTED | VOICEMAIL_LEFT | RESCHEDULED | PROVIDER_NOTIFIED | CLOSED
+  priority      String    @default("NORMAL") // LOW | NORMAL | HIGH | URGENT
+  dueDate       DateTime?
+  lastAttemptAt DateTime?
+  outcomeNote   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  patient    Patient             @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  enrollment TreatmentEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+}
+
+model AiDraft {
+  id           String   @id @default(cuid())
+  patientId    String
+  enrollmentId String
+  draftType    String   // CALL_SCRIPT | SMS_MESSAGE | CHART_NOTE | WEEKLY_SUMMARY
+  inputSummary String
+  content      String
+  createdAt    DateTime @default(now())
+
+  patient    Patient             @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  enrollment TreatmentEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id           String   @id @default(cuid())
+  actorName    String
+  action       String
+  entityType   String
+  entityId     String
+  metadataJson String?
+  createdAt    DateTime @default(now())
+}
+
+model ImportBatch {
+  id            String   @id @default(cuid())
+  filename      String
+  rowCount      Int
+  importedCount Int      @default(0)
+  skippedCount  Int      @default(0)
+  status        String   @default("PENDING") // PENDING | COMPLETED | FAILED
+  createdAt     DateTime @default(now())
+}

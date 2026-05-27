@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1;
+  }
+  .btn-primary {
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-gray-400;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  .btn-sm {
+    @apply text-xs px-2.5 py-1;
+  }
+  .card {
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm;
+  }
+  .table-row-hover {
+    @apply hover:bg-gray-50 transition-colors;
+  }
+}
