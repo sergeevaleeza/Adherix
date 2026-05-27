@@ -76,7 +76,7 @@ function adherenceCardColor(rate: number): string {
 function exportCSV(data: ReportData) {
   const lines: string[] = [];
 
-  lines.push("ADHERIX OUTCOMES REPORT");
+  lines.push("CLINIVORE OUTCOMES REPORT");
   lines.push(`Period,${data.period.label}`);
   lines.push("");
 
@@ -109,7 +109,7 @@ function exportCSV(data: ReportData) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `adherix-report-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.download = `clinivore-report-${new Date().toISOString().slice(0, 10)}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }

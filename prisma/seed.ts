@@ -18,7 +18,7 @@ function daysFromNow(n: number): Date {
 }
 
 async function main() {
-  console.log("🌱 Seeding Adherix database...");
+  console.log("🌱 Seeding Clinivore database...");
 
   // ── Clean up ──────────────────────────────────────────────
   await prisma.auditLog.deleteMany();
@@ -36,10 +36,10 @@ async function main() {
   const passwordHash = await bcrypt.hash("password123", 10);
   await prisma.user.createMany({
     data: [
-      { name: "Admin User", email: "admin@adherix.local", role: "ADMIN", passwordHash },
-      { name: "Dr. Levinson", email: "levinson@adherix.local", role: "PROVIDER", passwordHash },
-      { name: "Dr. Patel", email: "patel@adherix.local", role: "PROVIDER", passwordHash },
-      { name: "Office Staff", email: "staff@adherix.local", role: "STAFF", passwordHash },
+      { name: "Admin User", email: "admin@clinivore.local", role: "ADMIN", passwordHash },
+      { name: "Dr. Levinson", email: "levinson@clinivore.local", role: "PROVIDER", passwordHash },
+      { name: "Dr. Patel", email: "patel@clinivore.local", role: "PROVIDER", passwordHash },
+      { name: "Office Staff", email: "staff@clinivore.local", role: "STAFF", passwordHash },
     ],
   });
 

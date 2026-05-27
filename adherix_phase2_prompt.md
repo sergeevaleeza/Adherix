@@ -1,8 +1,8 @@
-# Adherix — Claude Code Prompt: Phase 2
+# Clinivore — Claude Code Prompt: Phase 2
 
 ## Current State
 
-Adherix v0.2.0 is complete with 0 TypeScript errors. Everything below is already built and working — do not modify it:
+Clinivore v0.2.0 is complete with 0 TypeScript errors. Everything below is already built and working — do not modify it:
 
 - Next.js 15 App Router + TypeScript + Tailwind CSS
 - Prisma 5 schema with 9 models (PostgreSQL-ready)
@@ -37,8 +37,8 @@ ls prisma/migrations/
 If empty, there are no migration files yet. Run:
 ```bash
 # Requires a local Postgres instance or Docker
-docker run --name adherix-pg -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=adherix -p 5432:5432 -d postgres:15
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/adherix" npx prisma migrate dev --name init
+docker run --name clinivore-pg -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=clinivore -p 5432:5432 -d postgres:15
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/clinivore" npx prisma migrate dev --name init
 ```
 Commit the generated `prisma/migrations/` folder — Railway needs it.
 

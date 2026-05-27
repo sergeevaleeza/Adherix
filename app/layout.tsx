@@ -4,7 +4,7 @@ import Sidebar from "@/components/Sidebar";
 import { auth } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "Adherix — Treatment Continuity Dashboard",
+  title: "Clinivore — Treatment Continuity Dashboard",
   description: "Psychiatric treatment continuity dashboard for behavioral health practices",
 };
 

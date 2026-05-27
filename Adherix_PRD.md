@@ -1,8 +1,8 @@
-# Adherix PRD
+# Clinivore PRD
 
 ## Product Name
 
-**Adherix**
+**Clinivore**
 
 ## Product Type
 
@@ -10,13 +10,13 @@ Staff-facing psychiatric treatment continuity dashboard for behavioral health pr
 
 ## One-Line Product Summary
 
-Adherix helps psychiatric practices track scheduled treatments, identify due or overdue patients, generate outreach scripts, and prepare Practice Fusion-ready chart-note drafts.
+Clinivore helps psychiatric practices track scheduled treatments, identify due or overdue patients, generate outreach scripts, and prepare Practice Fusion-ready chart-note drafts.
 
 ---
 
 # 1. Product Vision
 
-Adherix is not a generic medication reminder app. It is a psychiatric treatment continuity workflow system designed for practices that manage recurring, high-stakes treatments such as ketamine, Spravato, Vivitrol, Sublocade, and long-acting injectable antipsychotics.
+Clinivore is not a generic medication reminder app. It is a psychiatric treatment continuity workflow system designed for practices that manage recurring, high-stakes treatments such as ketamine, Spravato, Vivitrol, Sublocade, and long-acting injectable antipsychotics.
 
 The first version should answer one daily operational question:
 
@@ -73,7 +73,7 @@ Existing tools handle appointment reminders or EHR documentation, but they usual
 
 Practice Fusion is the chart.  
 Messaging tools are communication channels.  
-**Adherix is the treatment continuity brain.**
+**Clinivore is the treatment continuity brain.**
 
 ---
 
@@ -113,7 +113,7 @@ Do **not** build these in Phase 1:
 
 # 7. Initial Treatment Categories
 
-Adherix Phase 1 should support the following treatment categories:
+Clinivore Phase 1 should support the following treatment categories:
 
 - Ketamine / IV ketamine
 - Spravato
@@ -645,7 +645,7 @@ Use prior 8–12 weeks of Practice Fusion appointment data.
 
 ## Intervention Metrics
 
-Track the same metrics while staff use Adherix daily.
+Track the same metrics while staff use Clinivore daily.
 
 ## Success Criteria
 
@@ -675,7 +675,7 @@ Practice SaaS subscription.
 
 ## Sales Message
 
-> Adherix pays for itself if it helps recover even one or two missed ketamine or injection visits per month.
+> Clinivore pays for itself if it helps recover even one or two missed ketamine or injection visits per month.
 
 ---
 
@@ -711,7 +711,7 @@ Phase 1 is complete when:
 
 # 19. Quick-Win Demo Script
 
-1. Open Adherix dashboard.
+1. Open Clinivore dashboard.
 2. See 4 overdue patients and 2 high-priority patients.
 3. Click overdue Vivitrol patient.
 4. Generate call script.
@@ -730,4 +730,4 @@ Build Phase 1 as a local/demo-ready staff dashboard with mock data and CSV impor
 
 The first product should prove one thing:
 
-> Psychiatric office staff can use Adherix every morning to reduce missed treatment gaps and document follow-up faster.
+> Psychiatric office staff can use Clinivore every morning to reduce missed treatment gaps and document follow-up faster.

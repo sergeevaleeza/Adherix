@@ -37,10 +37,12 @@ export default function Sidebar({ session }: { session: Session | null }) {
       <div className="px-6 py-5 border-b border-slate-700">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-            Ax
+            Cv
           </div>
           <div>
-            <div className="font-semibold text-white text-sm">Adherix</div>
+            <div className="font-semibold text-sm">
+              <span className="text-blue-400">clini</span><span className="text-white">vore</span>
+            </div>
             <div className="text-slate-400 text-xs">Treatment Continuity</div>
           </div>
         </div>

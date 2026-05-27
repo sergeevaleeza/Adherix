@@ -35,10 +35,12 @@ export default function LoginPage() {
         {/* Brand */}
         <div className="flex items-center justify-center gap-3 mb-8">
           <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-base">
-            Ax
+            Cv
           </div>
           <div>
-            <div className="font-semibold text-white text-lg">Adherix</div>
+            <div className="font-semibold text-lg">
+              <span className="text-blue-400">clini</span><span className="text-white">vore</span>
+            </div>
             <div className="text-slate-400 text-xs">Treatment Continuity</div>
           </div>
         </div>
@@ -60,7 +62,7 @@ export default function LoginPage() {
                 required
                 autoFocus
                 className="w-full text-sm border border-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="you@adherix.local"
+                placeholder="you@clinivore.local"
               />
             </div>
             <div>
